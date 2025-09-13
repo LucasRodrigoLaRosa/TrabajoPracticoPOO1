@@ -1,6 +1,7 @@
 package Sistema;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Equipo {
 	private String nombre;
@@ -11,7 +12,7 @@ public class Equipo {
 	public Equipo(String nombre, String codigo, List<Jugador> jugadores, String entrenador) {
 		this.nombre = nombre;
 		this.codigo = codigo;
-		this.jugadores = jugadores;
+		this.jugadores = new ArrayList<Jugador>();
 		this.entrenador = entrenador;
 	}
 
@@ -33,10 +34,6 @@ public class Equipo {
 
 	public List<Jugador> getJugadores() {
 		return jugadores;
-	}
-
-	public void setJugadores(List<Jugador> jugadores) {
-		this.jugadores = jugadores;
 	}
 
 	public String getEntrenador() {

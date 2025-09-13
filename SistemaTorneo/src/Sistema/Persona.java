@@ -1,49 +1,49 @@
 package Sistema;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-public class Persona {
-	private String nombre;
-	private String apellido;
-	private long dni;
-	private Date fechaDeNacimiento;
+public abstract class Persona {
+	protected String nombre;
+	protected String apellido;
+	protected long dni;
+	protected LocalDate fechaDeNacimiento;
 	
-	public Persona(String nombre, String apellido, long dni, Date fechaDeNacimiento) {
+	protected Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
-	public String getNombre() {
+	protected String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	protected void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
+	protected String getApellido() {
 		return apellido;
 	}
 
-	public void setApellido(String apellido) {
+	protected void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 
-	public long getDni() {
+	protected long getDni() {
 		return dni;
 	}
 
-	public void setDni(long dni) {
+	protected void setDni(long dni) {
 		this.dni = dni;
 	}
 
-	public Date getFechaDeNacimiento() {
+	protected LocalDate getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
 
-	public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+	protected void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 

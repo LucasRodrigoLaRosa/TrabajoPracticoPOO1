@@ -1,26 +1,26 @@
 package Sistema;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Partido {
 
-	private Date fecha;
+	private LocalDate fecha;
 	private Equipo equipoLocal;
 	private Equipo equipoVisitante;
 	private String estadio;
 
-	public Partido(Date fecha, Equipo equipoLocal, Equipo equipoVisitante, String estadio) {
+	public Partido(LocalDate fecha, Equipo equipoLocal, Equipo equipoVisitante, String estadio) {
 		this.fecha = fecha;
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
 		this.estadio = estadio;
 	}
 
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
