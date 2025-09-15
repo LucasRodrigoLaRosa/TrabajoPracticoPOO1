@@ -1,4 +1,4 @@
-package Sistema;
+package modelo;
 
 public class EstadisticasJugador {
 	private int cantidadGoles;
@@ -44,5 +44,6 @@ public class EstadisticasJugador {
 		this.minutos = minutos;
 		this.partido = partido;
 	}
+	
 
 }

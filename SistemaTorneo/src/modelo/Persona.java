@@ -1,14 +1,16 @@
-package Sistema;
+package modelo;
 
 import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class Persona {
 	private String nombre;
 	private String apellido;
 	private long dni;
-	private Date fechaDeNacimiento;
+	private LocalDate fechaDeNacimiento;
 	
-	public Persona(String nombre, String apellido, long dni, Date fechaDeNacimiento) {
+	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -39,12 +41,24 @@ public class Persona {
 		this.dni = dni;
 	}
 
-	public Date getFechaDeNacimiento() {
+	public LocalDate getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
 
-	public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+	public void setFechaDeNacimiento(LocalDate  fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
+	public boolean calcularEdad(LocalDate FechaNacimiento) {
+		LocalDate fechaActual =LocalDate.now();
+		Period periodo=Period.between(FechaNacimiento, fechaActual);
+		return periodo.getYears()>=18;
+		
+		
+		
+		
+	}
+	
+	
+	
 }
