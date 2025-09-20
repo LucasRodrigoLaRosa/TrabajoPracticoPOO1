@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.Date;
+import java.util.List;
 import java.time.LocalDate;
 
 public class Entrenador extends Persona {
@@ -19,4 +20,18 @@ public class Entrenador extends Persona {
 	public void setEstrategiaFavorita(String estrategiaFavorita) {
 		this.estrategiaFavorita = estrategiaFavorita;
 	}
+	
+	
+	
+	public boolean traerPortactica(String estrategia) {
+	
+	if(estrategiaFavorita.equals(estrategia)) {
+		
+		
+		return true;
+		
+	}else {return false;}
+	
+	
+	   }
 }

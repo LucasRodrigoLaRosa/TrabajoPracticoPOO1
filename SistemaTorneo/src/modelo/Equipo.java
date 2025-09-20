@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +10,23 @@ public class Equipo {
 	private String nombre;
 	private String codigo;
 	private List<Jugador> jugadores;
-	private String entrenador;
+	private Entrenador entrenador;
+	private LocalDate fechaDeFundacion;
 	
-	public Equipo(String nombre, String codigo, String entrenador) {
+	public LocalDate getFechaDeFundacion() {
+		return fechaDeFundacion;
+	}
+
+	public void setFechaDeFundacion(LocalDate fechaDeFundacion) {
+		this.fechaDeFundacion = fechaDeFundacion;
+	}
+
+	public Equipo(String nombre, String codigo, Entrenador entrenador,LocalDate fechaDeFundacion) {
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.jugadores = new ArrayList<Jugador>();
 		this.entrenador = entrenador;
+		this.fechaDeFundacion=fechaDeFundacion;
 	}
 
 	public String getNombre() {
@@ -42,13 +53,13 @@ public class Equipo {
 		this.jugadores = jugadores;
 	}// ESTO TAL VEZ HABRIA QUE SACARLO POR QUE NO SE VA A CARGAR UNA LISTA TOTALMENTE NUEVA CON JUGADORES TODO DE UNA (SE CARGA JUGADOR POR JUGADOR )
 
-	public String getEntrenador() {
+	public Entrenador getEntrenador() {
 		return entrenador;
 	}
 	
 	
 
-	public void setEntrenador(String entrenador) {
+	public void setEntrenador(Entrenador entrenador) {
 		this.entrenador = entrenador;
 	}
 	
@@ -86,5 +97,76 @@ public class Equipo {
 		
 	} 
 	
+	
+	//CALCULAR ALTURA PROMEDIO DE UN EQUIPO PUNTO 8
+	
+	public float retornarAlturaPromedio() {
+	float acumulador=0;
+	for(Jugador jugador:this.jugadores) {
+		
+		acumulador=acumulador+jugador.getAltura();
+		
+		
+	}
+	float promedio =acumulador/jugadores.size();
+	return promedio;
+}
+	 //---------------------PUNTO 3(TRAER POR ID)------------------------
+	   public boolean traerEquipoPorId(String cod) {
+	    	
+	    	if(this.codigo.equals(cod)) {
+	    		
+	    		
+	    		return true;
+	    		
+	    		
+	    	}
+	    	return false;
+	    	
+	    	
+	    }
+	   
+	   
+	   
+	// ---------------------PUNTO 4  (TRAER EQUIPOS GANADORES) ---------------------------------------  
+	// ---------------CALCULAR GOLES POR FECHA---------------
+	   
+	   public int cantGolesTotales(LocalDate fecha) {
+		   
+		   int totalGoles=0;
+		   for(Jugador jugador:jugadores) {
+			   
+			   totalGoles=jugador.cantGoles(fecha);			   
+			   
+			   
+		   }
+		   return totalGoles;
+		   
+	   }
+	   
+	//----------------------PUNTO 12 (BUSCAR UN JUGADOR EN UNA LISTA Y TRAER GOLES TOTALES  )------------------------    
+	   public Jugador buscarJugador(long Dni) {
+		 
+		   int i=0;
+		  Jugador buscado=null;
+		 while(i< jugadores.size()&&buscado==null) {
+			 
+			 Jugador actual =jugadores.get(i);
+			 if(actual.compararDni(Dni)) {
+				 
+				 buscado=actual;
+				 
+				}else {i++;}
+			 
+			 
+		 }  
+		 
+		return buscado;
+	   }
+	   
+	   
+	   
+	   
+	   
 	
 }

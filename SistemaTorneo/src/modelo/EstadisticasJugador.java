@@ -5,6 +5,7 @@ public class EstadisticasJugador {
 	private int asistencias;
 	private int minutos;
 	private Partido partido;
+	private String id;
 
 	public int getCantidadGoles() {
 		return cantidadGoles;
@@ -38,12 +39,39 @@ public class EstadisticasJugador {
 		this.partido = partido;
 	}
 
-	public EstadisticasJugador(int cantidadGoles, int asistencias, int minutos, Partido partido) {
+	public EstadisticasJugador(int cantidadGoles, int asistencias, int minutos, Partido partido,String nombre,long dni) {
 		this.cantidadGoles = cantidadGoles;
 		this.asistencias = asistencias;
 		this.minutos = minutos;
 		this.partido = partido;
+		this.id=generarId(nombre,dni);
 	}
 	
+	
+	public String generarId(String nombre,long dni) {
+		String unir=nombre+dni;
+		return unir;
+		
+	}
+	
+	//--SOLO HAY GET DE ID POR QUE SE CREA INTERNAMENTE---------
+	 public String getId() {
+		return id;
+	}
+
+	//---------------------PUNTO 3(TRAER POR ID)------------------------
+    public boolean traerEstadisticaPorId(String id) {
+    	
+    	if(this.id.equals(id)) {
+    		
+    		
+    		return true;
+    		
+    		
+    	}
+    	return false;
+    	
+    	
+    }
 
 }

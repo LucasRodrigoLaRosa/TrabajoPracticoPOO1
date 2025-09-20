@@ -117,6 +117,95 @@ public class Jugador extends Persona {
   }
 
 
+//Buscar Jugador por fecha 
+    
+    
+    
+    public boolean JugadorEstaEntreFechas(LocalDate fechaUno,LocalDate fechaDos) {
+    	
+    	if(this.getFechaDeNacimiento().isAfter(fechaUno) && this.getFechaDeNacimiento().isBefore(fechaDos)) {
+    		
+    		return true;
+    		
+    	}else {return false; }
+    	
+    	
+    	
+    }
 
-
+    //---------------------PUNTO 3------------------------
+   /* public boolean traerJugadorPorId(long dni) {
+    	
+    	if(this.dni==dni) {
+    		
+    		
+    		return true;
+    		
+    		
+    	}
+    	return false;
+    	
+    	
+    }*/
+    
+    
+    
+     // ---------------------PUNTO 4  (TRAER EQUIPOS GANADORES) ---------------------------------------
+    //-----------------------CANTIDAD DE GOLES POR JUGADOR ------------------------------------------------
+    
+    public int cantGoles(LocalDate Fecha) {
+    	int cantGoles=0;
+    	for(EstadisticasJugador estadistica : estadistica) {
+    		
+    		if(estadistica.getPartido().getFecha().isEqual(Fecha)) {
+    			
+    			cantGoles=cantGoles+estadistica.getCantidadGoles();
+    			
+    			
+    			
+    		}
+    		
+    		
+    	}
+    	
+    	
+    	return cantGoles;
+    }
+   
+    public int GolesTotales() {
+    	int golesTotales=0;
+    	for(EstadisticasJugador estadistica : estadistica) {
+    		
+    		golesTotales=golesTotales+estadistica.getCantidadGoles();
+    		
+    		
+    		
+    		
+    	}
+    	
+    	return golesTotales;
+    }
+    
+    
+    public int  totalAsistencias() {
+    	int asistnTotales=0;
+    	for(EstadisticasJugador estadistica : estadistica) {
+    		
+    		asistnTotales=asistnTotales+estadistica.getAsistencias();
+    		
+    		
+    	}
+    	
+    	return asistnTotales;
+    }
+    	
+    	
+    	
+    	
+    	
+    
+    
+    
+    
+    
 }

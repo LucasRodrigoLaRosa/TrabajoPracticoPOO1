@@ -5,10 +5,10 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Persona {
-	private String nombre;
-	private String apellido;
-	private long dni;
-	private LocalDate fechaDeNacimiento;
+	protected String nombre;
+	protected String apellido;
+	protected long dni;
+	protected LocalDate fechaDeNacimiento;
 	
 	public Persona(String nombre, String apellido, long dni, LocalDate fechaDeNacimiento) {
 		this.nombre = nombre;
@@ -59,6 +59,19 @@ public class Persona {
 		
 	}
 	
+	 //---------------------PUNTO 3(TRAER POR ID)------------------------
+	   public boolean compararDni(long dni) {
+	    	
+	    	if(this.dni==dni) {
+	    		
+	    		
+	    		return true;
+	    		
+	    		
+	    	}
+	    	return false;
+	
+}
 	
 	
 }
