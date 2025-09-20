@@ -1,19 +1,22 @@
 package Sistema;
 
 import java.util.List;
-import java.util.Date;
+import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Torneo {
 	private String nombre;
 	private String temporada;
-	private List<Equipo> equipo;
-	private Date fechaInicio;
-	private Date fechaFin;
+	private List<Partido> partidos;
+	private List<Equipo> equipos;
+	private LocalDate fechaInicio;
+	private LocalDate fechaFin;
 	
-	public Torneo(String nombre, String temporada, List<Equipo> equipo, Date fechaInicio, Date fechaFin) {
+	public Torneo(String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) {
 		this.nombre = nombre;
 		this.temporada = temporada;
-		this.equipo = equipo;
+		this.partidos = new ArrayList<Partido>();
+		this.equipos = new ArrayList<Equipo>();
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 	}
@@ -34,28 +37,54 @@ public class Torneo {
 		this.temporada = temporada;
 	}
 
-	public List<Equipo> getEquipo() {
-		return equipo;
+	public List<Partido> getPartidos() {
+		return partidos;
+	}
+	
+	public List<Equipo> getEquipos(){
+		return equipos;
 	}
 
-	public void setEquipo(List<Equipo> equipo) {
-		this.equipo = equipo;
-	}
-
-	public Date getFechaInicio() {
+	public LocalDate getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(LocalDate fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public LocalDate getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
+	}
+	
+	public void agregarEquipo(Equipo equipo) {
+		equipos.add(equipo);
+	}
+	
+	public void agregarPartido(Partido partido) {
+		partidos.add(partido); 
+	}
+	
+	public List<Ganador> obtenerGanadoresEnFecha(LocalDate fecha){
+		List<Ganador> ganadores = new ArrayList<Ganador>();
+		
+		for(Partido partido: partidos) {
+			if(partido.getFecha().isEqual(fecha)) {
+				ganadores.add(partido.obtenerGanador());
+			}
+		}
+		
+		return ganadores;
+	}
+	
+	public void mostrarGanadores(List<Ganador> ganadores) {
+		for(Ganador ganador: ganadores) {
+			System.out.println(ganador.toString());
+		}
 	}
 
 }

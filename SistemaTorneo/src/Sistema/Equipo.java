@@ -7,9 +7,9 @@ public class Equipo {
 	private String nombre;
 	private String codigo;
 	private List<Jugador> jugadores;
-	private String entrenador;
-	
-	public Equipo(String nombre, String codigo, List<Jugador> jugadores, String entrenador) {
+	private Entrenador entrenador;
+
+	public Equipo(String nombre, String codigo, Entrenador entrenador) {
 		this.nombre = nombre;
 		this.codigo = codigo;
 		this.jugadores = new ArrayList<Jugador>();
@@ -36,11 +36,21 @@ public class Equipo {
 		return jugadores;
 	}
 
-	public String getEntrenador() {
+	public Entrenador getEntrenador() {
 		return entrenador;
 	}
-
-	public void setEntrenador(String entrenador) {
-		this.entrenador = entrenador;
+	
+	public void agregarJugador(Jugador jugador) {
+		this.jugadores.add(jugador);
 	}
+	
+	public Jugador obtenerJugadorPorDni(long dni) {
+		for (Jugador j : jugadores) {
+	        if (j.getDni() == dni) {
+	            return j;
+	        }
+	    }
+		return null;
+	}
+	
 }

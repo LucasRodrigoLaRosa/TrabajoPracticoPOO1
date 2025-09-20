@@ -1,10 +1,25 @@
 package Sistema;
 
 public class EstadisticasJugador {
+	private static int contadorIds = 1;
+	
+	private int id;
 	private int cantidadGoles;
 	private int asistencias;
 	private int minutos;
-	private Partido partido;
+	private Jugador jugador;
+	
+	public EstadisticasJugador(int cantidadGoles, int asistencias, int minutos, Jugador jugador) {
+		this.id = contadorIds++;
+		this.cantidadGoles = cantidadGoles;
+		this.asistencias = asistencias;
+		this.minutos = minutos;
+		this.jugador = jugador;
+	}
+	
+	public int getId() {
+		return id;
+	}
 
 	public int getCantidadGoles() {
 		return cantidadGoles;
@@ -19,7 +34,7 @@ public class EstadisticasJugador {
 	}
 
 	public void setAsistencias(int asistencias) {
-		this.asistencias = asistencias;
+		this.asistencias = asistencias; 
 	}
 
 	public int getMinutos() {
@@ -30,19 +45,12 @@ public class EstadisticasJugador {
 		this.minutos = minutos;
 	}
 
-	public Partido getPartido() {
-		return partido;
+	public Jugador getJugador() {
+		return jugador;
 	}
 
-	public void setPartido(Partido partido) {
-		this.partido = partido;
-	}
-
-	public EstadisticasJugador(int cantidadGoles, int asistencias, int minutos, Partido partido) {
-		this.cantidadGoles = cantidadGoles;
-		this.asistencias = asistencias;
-		this.minutos = minutos;
-		this.partido = partido;
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
 	}
 
 }
